@@ -93,6 +93,9 @@ $randomButton.addEventListener('click', function () {
 	} else if (player1.hp > 0 && player2.hp === 0) {
 		$arenas.appendChild(playerLose(player1.name));
 		$randomButton.disabled = true;
+	} else if (player1.hp === 0 && player2.hp === 0) {
+		$arenas.appendChild(playerLose('both'));
+		$randomButton.disabled = true;
 	}
 
 })
