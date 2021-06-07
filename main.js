@@ -87,18 +87,21 @@ $randomButton.addEventListener('click', function () {
 	changeHp(player1);
 	changeHp(player2);
 
-	if (player1.hp === 0 && player2.hp > 0) {
-		$arenas.appendChild(playerLose(player2.name));
+	checkWinner(player1, player2);
+})
+
+function checkWinner(playerA, playerB) {
+	if (playerA.hp === 0 && playerB.hp > 0) {
+		$arenas.appendChild(playerLose(playerB.name));
 		$randomButton.disabled = true;
-	} else if (player1.hp > 0 && player2.hp === 0) {
-		$arenas.appendChild(playerLose(player1.name));
+	} else if (playerA.hp > 0 && playerB.hp === 0) {
+		$arenas.appendChild(playerLose(playerA.name));
 		$randomButton.disabled = true;
-	} else if (player1.hp === 0 && player2.hp === 0) {
+	} else if (playerA.hp === 0 && playerB.hp === 0) {
 		$arenas.appendChild(playerLose('both not'));
 		$randomButton.disabled = true;
 	}
-
-})
+}
 
 
 $arenas.appendChild(createPlayer(player1));
