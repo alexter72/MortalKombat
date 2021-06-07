@@ -57,6 +57,11 @@ function createPlayer(propertiesPlayer) {
 	return $player;
 }
 
+function randomNumber() {
+	const randomNumber = Math.random() * 20;
+	return randomNumber;
+}
+
 function changeHp(player) {
 	const $playerLife = document.querySelector('.player' + player.player + ' .life');
 
@@ -67,13 +72,6 @@ function changeHp(player) {
 		player.hp = 0;
 	}
 }
-
-function randomNumber() {
-	const randomNumber = Math.random() * 20;
-	return randomNumber;
-}
-
-randomNumber();
 
 function playerLose(name) {
 	const $loseTitle = createElement('div', 'loseTitle');
@@ -106,7 +104,3 @@ function checkWinner(playerA, playerB) {
 
 $arenas.appendChild(createPlayer(player1));
 $arenas.appendChild(createPlayer(player2));
-
-
-
-
